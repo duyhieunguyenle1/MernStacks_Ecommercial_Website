@@ -1,8 +1,10 @@
 const app = require('./app')
 const http = require('http')
-const dotenv = require('dotenv').config()
 const connectDatabase = require('./config/database')
 const cloudinary = require('cloudinary').v2
+require('dotenv').config()
+
+const PORT = process.env.PORT || 8800
 
 // Handle Uncaught exceptions
 process.on('uncaughtException', err => {
@@ -23,7 +25,7 @@ cloudinary.config({
 
 const server = http.createServer({ maxHeaderSize: 80000000 }, app);
 
-server.listen(process.env.PORT, '127.0.0.1', () => {
+server.listen(PORT, '127.0.0.1', () => {
     console.log(`Server started on PORT ${process.env.PORT} in ${process.env.NODE_ENV}`)
 })
 
