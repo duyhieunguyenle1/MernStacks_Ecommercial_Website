@@ -27,13 +27,13 @@ app.use('/api/v1', auth)
 app.use('/api/v1', order)
 app.use('/api/v1', payment)
 
-if (process.env.NODE_ENV === 'PRODUCTION') {
-    app.use(express.static(path.resolve(__dirname, '../frontend/dist')))
+// if (process.env.NODE_ENV === 'PRODUCTION') {
+//     app.use(express.static(path.resolve(__dirname, '../frontend/dist')))
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../frontend/dist/index.html'))
-    })
-}
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.resolve(__dirname, '../frontend/dist/index.html'))
+//     })
+// }
 
 // Error Middleware
 app.use(errorMiddleware)
