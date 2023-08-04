@@ -23,9 +23,7 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-const server = http.createServer({ maxHeaderSize: 80000000 }, app);
-
-server.listen(PORT, '127.0.0.1', () => {
+app.listen(PORT, () => {
     console.log(`Server started on PORT ${process.env.PORT} in ${process.env.NODE_ENV}`)
 })
 
