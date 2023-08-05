@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const cookieParser = require('cookie-parser')
+const cors = require('cors')
 const fileUpload = require('express-fileupload')
 
 // if (process.env.NODE_ENV !== 'PRODUCTION') {
@@ -17,6 +18,7 @@ const errorMiddleware = require('./middlewares/errors')
 
 // middleware 
 app.use(express.json({ limit: '50mb' }))
+app.use(cors())
 app.use(express.urlencoded({ extended: true, limit: '50mb' }))
 app.use(cookieParser()) // add access to cookie in req
 app.use(fileUpload())

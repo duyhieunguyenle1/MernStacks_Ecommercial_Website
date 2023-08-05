@@ -35,11 +35,11 @@ export const getProducts = (keyword = '', currentPage = 1, price, category, rati
     try {
         dispatch({ type: ALL_PRODUCTS_REQUEST })
 
-        let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}
+        let link = `https://ecommercial-website-api.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}
         &price[gte]=${price[0]}&ratings[gte]=${ratings}`
 
         if (category) {
-            link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}
+            link = `https://ecommercial-website-api.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}
             &price[gte]=${price[0]}&category=${category}&ratings[gte]=${ratings}`
         }
 
