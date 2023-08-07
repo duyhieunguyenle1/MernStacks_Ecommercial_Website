@@ -69,7 +69,7 @@ export const newProduct = (productData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post(`/api/v1/admin/product/new`, productData, config)
+        const { data } = await axios.post(`https://ecommercial-website-api.onrender.com/api/v1/admin/product/new`, productData, config)
 
         dispatch({
             type: NEW_PRODUCT_SUCCESS,
@@ -89,7 +89,7 @@ export const deleteProduct = (id) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_PRODUCT_REQUEST })
 
-        const { data } = await axios.delete(`/api/v1/admin/product/${id}`)
+        const { data } = await axios.delete(`https://ecommercial-website-api.onrender.com/api/v1/admin/product/${id}`)
 
         dispatch({
             type: DELETE_PRODUCT_SUCCESS,
@@ -115,7 +115,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/admin/product/${id}`, productData, config)
+        const { data } = await axios.put(`https://ecommercial-website-api.onrender.com/api/v1/admin/product/${id}`, productData, config)
 
         dispatch({
             type: UPDATE_PRODUCT_SUCCESS,
@@ -134,7 +134,7 @@ export const getProductDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/products/${id}`)
+        const { data } = await axios.get(`https://ecommercial-website-api.onrender.com/api/v1/products/${id}`)
 
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
@@ -159,7 +159,7 @@ export const newReview = (reviewData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/review`, reviewData, config)
+        const { data } = await axios.put(`https://ecommercial-website-api.onrender.com/api/v1/review`, reviewData, config)
 
         dispatch({
             type: NEW_REVIEW_SUCCESS,
@@ -178,7 +178,7 @@ export const getAdminProducts = () => async (dispatch) => {
     try {
         dispatch({ type: ADMIN_PRODUCTS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/admin/products`)
+        const { data } = await axios.get(`https://ecommercial-website-api.onrender.com/api/v1/admin/products`)
 
         dispatch({
             type: ADMIN_PRODUCTS_SUCCESS,
@@ -199,7 +199,7 @@ export const getProductReviews = (id) => async (dispatch) => {
 
         dispatch({ type: GET_REVIEWS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/reviews?id=${id}`)
+        const { data } = await axios.get(`https://ecommercial-website-api.onrender.com/api/v1/reviews?id=${id}`)
 
         dispatch({
             type: GET_REVIEWS_SUCCESS,
@@ -221,7 +221,7 @@ export const deleteProductReview = (id, productId) => async (dispatch) => {
 
         dispatch({ type: DELETE_REVIEWS_REQUEST })
 
-        const { data } = await axios.delete(`/api/v1/reviews?id=${id}&productId=${productId}`)
+        const { data } = await axios.delete(`https://ecommercial-website-api.onrender.com/api/v1/reviews?id=${id}&productId=${productId}`)
 
         dispatch({
             type: DELETE_REVIEWS_SUCCESS,

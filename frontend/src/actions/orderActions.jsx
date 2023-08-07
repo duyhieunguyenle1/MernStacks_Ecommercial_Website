@@ -33,7 +33,7 @@ export const createOrder = (order) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post('/api/v1/orders/new', order, config)
+        const { data } = await axios.post('https://ecommercial-website-api.onrender.com/api/v1/orders/new', order, config)
 
         dispatch({
             type: CREATE_ORDER_SUCCESS,
@@ -54,7 +54,7 @@ export const myOrders = () => async (dispatch) => {
 
         dispatch({ type: MY_ORDERS_REQUEST })
 
-        const { data } = await axios.get('/api/v1/orders/me')
+        const { data } = await axios.get('https://ecommercial-website-api.onrender.com/api/v1/orders/me')
 
         dispatch({
             type: MY_ORDERS_SUCCESS,
@@ -75,7 +75,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
 
         dispatch({ type: ORDER_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/orders/${id}`)
+        const { data } = await axios.get(`https://ecommercial-website-api.onrender.com/api/v1/orders/${id}`)
 
         dispatch({
             type: ORDER_DETAILS_SUCCESS,
@@ -96,7 +96,7 @@ export const allOrders = () => async (dispatch) => {
 
         dispatch({ type: ALL_ORDERS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/admin/orders`)
+        const { data } = await axios.get(`https://ecommercial-website-api.onrender.com/api/v1/admin/orders`)
 
         dispatch({
             type: ALL_ORDERS_SUCCESS,
@@ -123,7 +123,7 @@ export const updateOrder = (id, orderData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/admin/orders/${id}`, orderData, config)
+        const { data } = await axios.put(`https://ecommercial-website-api.onrender.com/api/v1/admin/orders/${id}`, orderData, config)
 
         dispatch({
             type: UPDATE_ORDERS_SUCCESS,
@@ -144,7 +144,7 @@ export const deleteOrder = (id) => async (dispatch) => {
 
         dispatch({ type: DELETE_ORDERS_REQUEST })
 
-        const { data } = await axios.delete(`/api/v1/admin/orders/${id}`)
+        const { data } = await axios.delete(`https://ecommercial-website-api.onrender.com/api/v1/admin/orders/${id}`)
 
         dispatch({
             type: DELETE_ORDERS_SUCCESS,

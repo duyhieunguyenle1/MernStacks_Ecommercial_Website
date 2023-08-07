@@ -5,9 +5,9 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const fileUpload = require('express-fileupload')
 
-// if (process.env.NODE_ENV !== 'PRODUCTION') {
-require('dotenv').config()
-// }
+if (process.env.NODE_ENV !== 'PRODUCTION') {
+    require('dotenv').config()
+}
 
 const productRoute = require('./routes/product')
 const auth = require('./routes/auth')
@@ -29,13 +29,13 @@ app.use('/api/v1', auth)
 app.use('/api/v1', order)
 app.use('/api/v1', payment)
 
-// if (process.env.NODE_ENV === 'PRODUCTION') {
-//     app.use(express.static(path.resolve(__dirname, '../frontend/dist')))
+if (process.env.NODE_ENV === 'PRODUCTION') {
+    app.use(express.static(path.resolve(__dirname, './dist')))
 
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.resolve(__dirname, '../frontend/dist/index.html'))
-//     })
-// }
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, './dist/index.html'))
+    })
+}
 
 // Error Middleware
 app.use(errorMiddleware)
