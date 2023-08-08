@@ -43,7 +43,7 @@ const Login = () => {
 
     return (
         <>
-            {loading ? <Loader /> : (
+            {
                 <>
                     <MetaData title={'Login'} />
                     <div className="row wrapper">
@@ -87,7 +87,7 @@ const Login = () => {
                         </div>
                     </div>
                 </>
-            )}
+            }
         </>
     )
 }
