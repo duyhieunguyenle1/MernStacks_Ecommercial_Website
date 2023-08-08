@@ -51,7 +51,7 @@ export const login = (email, password) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post('/api/v1/login', { email, password }, config)
+        const { data } = await axios.post('https://ecommercial-website-api.onrender.com/api/v1/login', { email, password }, config)
 
         dispatch({
             type: LOGIN_SUCCESS,
@@ -77,7 +77,7 @@ export const register = (userData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post('/api/v1/register', userData, config)
+        const { data } = await axios.post('https://ecommercial-website-api.onrender.com/api/v1/register', userData, config)
 
         dispatch({
             type: REGISTER_USER_SUCCESS,
@@ -103,7 +103,7 @@ export const updateProfile = (userData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put('/api/v1/me/update', userData, config)
+        const { data } = await axios.put('https://ecommercial-website-api.onrender.com/api/v1/me/update', userData, config)
 
         dispatch({
             type: UPDATE_PROFILE_SUCCESS,
@@ -129,7 +129,7 @@ export const updatePassword = (password) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put('/api/v1/password/update', password, config)
+        const { data } = await axios.put('https://ecommercial-website-api.onrender.com/api/v1/password/update', password, config)
 
         dispatch({
             type: UPDATE_PASSWORD_SUCCESS,
@@ -155,7 +155,7 @@ export const forgotPassword = (email) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post('/api/v1/password/forgot', email, config)
+        const { data } = await axios.post('https://ecommercial-website-api.onrender.com/api/v1/password/forgot', email, config)
 
         dispatch({
             type: FORGOT_PASSWORD_SUCCESS,
@@ -181,7 +181,7 @@ export const resetPassword = (token, password) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/password/reset/${token}`, password, config)
+        const { data } = await axios.put(`https://ecommercial-website-api.onrender.com/api/v1/password/reset/${token}`, password, config)
 
         dispatch({
             type: NEW_PASSWORD_SUCCESS,
@@ -202,7 +202,7 @@ export const loadUser = () => async (dispatch) => {
     try {
         dispatch({ type: LOAD_USER_REQUEST })
 
-        const { data } = await axios.get('/api/v1/me')
+        const { data } = await axios.get('https://ecommercial-website-api.onrender.com/api/v1/me')
 
         dispatch({
             type: LOAD_USER_SUCCESS,
@@ -221,7 +221,7 @@ export const loadUser = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
     try {
 
-        await axios.get('/api/v1/logout')
+        await axios.get('https://ecommercial-website-api.onrender.com/api/v1/logout')
 
         dispatch({
             type: LOGOUT_SUCCESS,
@@ -240,7 +240,7 @@ export const allUsers = () => async (dispatch) => {
     try {
         dispatch({ type: ALL_USERS_REQUEST })
 
-        const { data } = await axios.get('/api/v1/admin/users')
+        const { data } = await axios.get('https://ecommercial-website-api.onrender.com/api/v1/admin/users')
 
         dispatch({
             type: ALL_USERS_SUCCESS,
@@ -260,7 +260,7 @@ export const userDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: USER_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/admin/users/${id}`)
+        const { data } = await axios.get(`https://ecommercial-website-api.onrender.com/api/v1/admin/users/${id}`)
 
         dispatch({
             type: USER_DETAILS_SUCCESS,
@@ -284,7 +284,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
             'Content-Type': 'multipart/form-data'
         }
 
-        const { data } = await axios.put(`/api/v1/admin/users/${id}`, userData, config)
+        const { data } = await axios.put(`https://ecommercial-website-api.onrender.com/api/v1/admin/users/${id}`, userData, config)
 
         dispatch({
             type: UPDATE_USERS_SUCCESS,
@@ -304,7 +304,7 @@ export const deleteUser = (id) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_USERS_REQUEST })
 
-        const { data } = await axios.delete(`/api/v1/admin/users/${id}`)
+        const { data } = await axios.delete(`https://ecommercial-website-api.onrender.com/api/v1/admin/users/${id}`)
 
         dispatch({
             type: DELETE_USERS_SUCCESS,

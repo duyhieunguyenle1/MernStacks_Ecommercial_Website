@@ -49,7 +49,7 @@ function App() {
     store.dispatch(loadUser()); // semicolon is important
 
     (async function getStripeApiKey() {
-      const { data } = await axios.get('/api/v1/stripeapi')
+      const { data } = await axios.get('https://ecommercial-website-api.onrender.com/api/v1/stripeapi')
       setStripeApiKey(data.sendStripeApi)
     })()
 
