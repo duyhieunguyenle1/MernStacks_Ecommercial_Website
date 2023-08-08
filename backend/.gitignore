@@ -10,7 +10,7 @@ lerna-debug.log*
 *.env
 cloudinary.config.js
 
-images
+image
 
 data
 
