@@ -9,11 +9,18 @@ const isAuthenticatedUser = asyncWrapper(async (req, res, next) => {
 
     if (!token) {
         return next(new ErrorHandler('Please login to continue', 401))
+    } else {
+        jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
+            if (err) {
+                res.status(400).json({
+                    success: false,
+                    error: err
+                })
+            }
+            req.user = await User.findById(decoded._id)
+            next()
+        })
     }
-
-    const decoded = jwt.verify(token, process.env.JWT_SECRET)
-    req.user = await User.findById(decoded._id)
-    next()
 })
 
 const authorizeRoles = (...roles) => {
