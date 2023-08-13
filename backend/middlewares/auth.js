@@ -8,8 +8,10 @@ const isAuthenticatedUser = asyncWrapper(async (req, res, next) => {
     const { token } = req.cookies
 
     if (!token) {
+        console.log('Login1')
         return next(new ErrorHandler('Please login to continue', 401))
-    } else {
+    }
+    try {
         jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
             if (err) {
                 res.status(400).json({
@@ -20,6 +22,9 @@ const isAuthenticatedUser = asyncWrapper(async (req, res, next) => {
             req.user = await User.findById(decoded._id)
             next()
         })
+    } catch (error) {
+        console.log('Login2')
+        return next(new ErrorHandler('Login to continue', 401))
     }
 })
 
