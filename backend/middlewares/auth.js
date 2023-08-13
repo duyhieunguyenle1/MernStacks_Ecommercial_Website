@@ -8,7 +8,6 @@ const isAuthenticatedUser = asyncWrapper(async (req, res, next) => {
     const { token } = req.cookies
 
     if (!token) {
-        console.log('Login1')
         return next(new ErrorHandler('Please login to continue', 401))
     }
     try {
@@ -23,7 +22,6 @@ const isAuthenticatedUser = asyncWrapper(async (req, res, next) => {
             next()
         })
     } catch (error) {
-        console.log('Login2')
         return next(new ErrorHandler('Login to continue', 401))
     }
 })
