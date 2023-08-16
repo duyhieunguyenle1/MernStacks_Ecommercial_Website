@@ -9,7 +9,7 @@
 
 ## General Information
 I make this while learning in udemy to get to know better!!
-https://ecommercial-website-api.onrender.com : Link for testing 
+https://ecommercial-website-api.onrender.com/api/v1 : Link for testing 
 > Note: due to render.com policy, you might need to wait a little to load the api
 
 ## Technologies Used
@@ -26,4 +26,7 @@ https://ecommercial-website-api.onrender.com : Link for testing
 * Filter/sort products
 
 ## More
-The frontend files using ReactJs, Redux is in process here https://ecommercial-website.netlify.app/
+post ( /register, /login, /password/forgot, /order/new, /payment/process )
+get ( /products, /admin/products, /products/:id, /reviews, /stripeapi, /orders/me, /orders/:id, /admin/orders, /me, /admin/users, /admin/users/:id, /logout )
+put ( /admin/product/:id, /review, /admin/orders/:id, /me/update, /password/update, /admin/users/:id )
+delete ( /admin/users/:id, /admin/orders/:id, /admin/product/:id, /reviews )
